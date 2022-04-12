@@ -1,0 +1,245 @@
+                                                                            * {
+                                                                            margin: 0;
+                                                                            padding: 0;
+                                                                        }
+                                                                        
+                                                                        html,
+                                                                        body {
+                                                                            height: 100%;
+                                                                            /* for touch screen */
+                                                                            touch-action: none;
+                                                                        }
+                                                                        
+                                                                        body {
+                                                                            overflow: hidden;
+                                                                            display: -webkit-box;
+                                                                            display: -ms-flexbox;
+                                                                            display: flex;
+                                                                            background: #111;
+                                                                            -webkit-perspective: 1000px;
+                                                                            perspective: 1000px;
+                                                                            -webkit-transform-style: preserve-3d;
+                                                                            transform-style: preserve-3d;
+                                                                        }
+                                                                        
+                                                                        #drag-container,
+                                                                        #spin-container {
+                                                                            position: relative;
+                                                                            display: -webkit-box;
+                                                                            display: -ms-flexbox;
+                                                                            display: flex;
+                                                                            margin: auto;
+                                                                            -webkit-transform-style: preserve-3d;
+                                                                            transform-style: preserve-3d;
+                                                                            -webkit-transform: rotateX(-10deg);
+                                                                            transform: rotateX(-10deg);
+                                                                            z-index: 100;
+                                                                        }
+                                                                        
+                                                                        #drag-container img,
+                                                                        #drag-container video {
+                                                                            -webkit-transform-style: preserve-3d;
+                                                                            transform-style: preserve-3d;
+                                                                            position: absolute;
+                                                                            left: 0;
+                                                                            top: 0;
+                                                                            max-width: 110%;
+                                                                            max-height: 120%;
+                                                                            line-height: 200px;
+                                                                            font-size: 50px;
+                                                                            text-align: center;
+                                                                            -webkit-box-shadow: 0 0 8px #fff;
+                                                                            box-shadow: 0 0 8px #fff;
+                                                                            -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+                                                                        }
+                                                                        
+                                                                        #drag-container img:hover,
+                                                                        #drag-container video:hover {
+                                                                            -webkit-box-shadow: 0 0 15px #fffd;
+                                                                            box-shadow: 0 0 15px #fffd;
+                                                                            -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+                                                                        }
+                                                                        
+                                                                        #drag-container p {
+                                                                            position: absolute;
+                                                                            top: 100%;
+                                                                            left: 100%;
+                                                                            -webkit-transform: translate(-40%, -50%) rotateX(100deg);
+                                                                            transform: translate(-60%, -60%) rotateX(50deg);
+                                                                            color: rgb(239, 224, 12);
+                                                                            animation: fadein ease 7s;
+                                                                        }
+                                                                        
+                                                                        #drag-container a {
+                                                                            position: absolute;
+                                                                            top: 100%;
+                                                                            left: 100%;
+                                                                            -webkit-transform: translate(-55%, -60%) rotateX(100deg);
+                                                                            transform: translate(-60%, -60%) rotateX(50deg);
+                                                                            color: rgb(239, 224, 12);
+                                                                            animation: fadein ease 7s;
+                                                                        }
+                                                                        
+                                                                        @keyframes fadein {
+                                                                            from {
+                                                                                opacity: 0;
+                                                                            }
+                                                                            to {
+                                                                                opacity: 1;
+                                                                            }
+                                                                        }
+                                                                        
+                                                                        #ground {
+                                                                            width: 1100px;
+                                                                            height: 1000px;
+                                                                            position: absolute;
+                                                                            top: 100%;
+                                                                            left: 50%;
+                                                                            -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+                                                                            transform: translate(-50%, -50%) rotateX(90deg);
+                                                                            background: -webkit-radial-gradient(center center, farthest-side, #9993, transparent);
+                                                                        }
+                                                                        
+                                                                        #music-container {
+                                                                            position: absolute;
+                                                                            top: 0;
+                                                                            left: 0;
+                                                                            display: none;
+                                                                        }
+                                                                        
+                                                                        @-webkit-keyframes spin {
+                                                                            from {
+                                                                                -webkit-transform: rotateY(0deg);
+                                                                                transform: rotateY(0deg);
+                                                                            }
+                                                                            to {
+                                                                                -webkit-transform: rotateY(360deg);
+                                                                                transform: rotateY(360deg);
+                                                                            }
+                                                                        }
+                                                                        
+                                                                        @keyframes spin {
+                                                                            from {
+                                                                                -webkit-transform: rotateY(0deg);
+                                                                                transform: rotateY(0deg);
+                                                                            }
+                                                                            to {
+                                                                                -webkit-transform: rotateY(360deg);
+                                                                                transform: rotateY(360deg);
+                                                                            }
+                                                                        }
+                                                                        
+                                                                        @-webkit-keyframes spinRevert {
+                                                                            from {
+                                                                                -webkit-transform: rotateY(360deg);
+                                                                                transform: rotateY(360deg);
+                                                                            }
+                                                                            to {
+                                                                                -webkit-transform: rotateY(0deg);
+                                                                                transform: rotateY(0deg);
+                                                                            }
+                                                                        }
+                                                                        
+                                                                        @keyframes spinRevert {
+                                                                            from {
+                                                                                -webkit-transform: rotateY(360deg);
+                                                                                transform: rotateY(360deg);
+                                                                            }
+                                                                            to {
+                                                                                -webkit-transform: rotateY(0deg);
+                                                                                transform: rotateY(0deg);
+                                                                            }
+                                                                        }
+                                                                        
+                                                                        #canvas {
+                                                                            background-color: transparent;
+                                                                            color: transparent;
+                                                                            margin: 0;
+                                                                            overflow: hidden;
+                                                                            background-repeat: no-repeat;
+                                                                            background-image: url(https://toigingiuvedep.vn/wp-content/uploads/2021/07/hinh-anh-dong-3d-dep-nhat-va-phong-cach-nhat.gif);
+                                                                            width: 1330px;
+                                                                            background-size: 100%;
+                                                                            <?php div#bg {
+                                                                                position: fixed;
+                                                                                top: 0;
+                                                                                left: 0;
+                                                                                width: 100%;
+                                                                                height: 100%;
+                                                                                z-index: -1;
+                                                                            }
+                                                                            ?>
+                                                                        }
+                                                                        
+                                                                        #canva {
+                                                                            position: absolute;
+                                                                            top: 0px;
+                                                                            right: 0px;
+                                                                            overflow: hidden;
+                                                                        }
+                                                                        
+                                                                        p {
+                                                                            font-family: 'Dancing Script', cursive;
+                                                                            font-family: 'Rampart One', cursive;
+                                                                            font-size: 4vw;
+                                                                        }
+                                                                        
+                                                                        .heart div {
+                                                                            background: rgb(15, 239, 183);
+                                                                            width: 71px;
+                                                                            height: 126px;
+                                                                            top: 40px;
+                                                                            display: block;
+                                                                            position: absolute;
+                                                                            border-radius: 50%
+                                                                        }
+                                                                        
+                                                                        .left {
+                                                                            color: #03e6bc;
+                                                                            left: 45px;
+                                                                        }
+                                                                        
+                                                                        .right {
+                                                                            color: aqua;
+                                                                            right: 45px;
+                                                                        }
+                                                                        
+                                                                        .heart {
+                                                                            width: 200px;
+                                                                            height: 200px;
+                                                                            top: 50%;
+                                                                            left: 50%;
+                                                                            z-index: 1;
+                                                                            display: block;
+                                                                            position: absolute;
+                                                                            transform: translate(-50%, -50%);
+                                                                            animation: heart 1s ease infinite
+                                                                        }
+                                                                        
+                                                                        @keyframes heart {
+                                                                            96% {
+                                                                                transform: translate(-50%, -50%) scale(.8, .8)
+                                                                            }
+                                                                            100% {
+                                                                                transform: translate(-50%, -50%) scale(1, 1)
+                                                                            }
+                                                                        }
+                                                                        
+                                                                        .heart div {
+                                                                            width: 77px;
+                                                                            height: 126px;
+                                                                            top: 60px;
+                                                                            display: block;
+                                                                            position: absolute;
+                                                                            border-radius: 50%
+                                                                        }
+                                                                        
+                                                                        .left {
+                                                                            left: 45px;
+                                                                            transform: rotate(330deg);
+                                                                        }
+                                                                        
+                                                                        .right {
+                                                                            right: 45px;
+                                                                            transform: rotate(30deg);
+                                                                            .
